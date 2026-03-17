@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #8cb4ff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+        }
+
+        #login {
+            background: #e4eef0;
+            border: 2px solid #000000;
+            border-radius: 15px;
+            padding: 40px;
+            color: #373737;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: #16232a 2px solid;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px 25px;
+            border: 2px solid #ffffff;
+            border-radius: 50px;
+            background: #ffffff;
+            color: #000000;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #8cb4ff;
+            box-shadow: 0 0 12px rgba(140, 180, 255, 0.4);
+        }
+
+        input::placeholder {
+            color: #000000;
+        }
+
+        button {
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+            transition: all 0.3s ease;
+        }
+
+        .main {
+            border: 1px solid #000000;
+            margin: 0 0 0 20px;
+            padding: 10px 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .main:hover {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            margin: 0 0 0 20px;
+            padding: 10px 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 40px;
+            transition: all 1s ease;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #373737;
+        }
+
+        .signup-link a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .signup-link a:hover {
+            color: #8cb4ff;
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="login">
+        <h1 class="main">BANG BRO'S</h1><br><br>
+        <h1>LOGIN</h1><br><br>
+        <div class="container"></div>
+        <form id="loginForm" action="/login" method="post">
+            <div style="text-align: left; max-width: 320px; margin: 0 auto;">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <div style="text-align: center; margin-top: 10px;">
+                    <button type="submit" style="width: 100%; padding: 15px; font-size: 18px; border-radius: 50px;">Login</button>
+                </div>
+            </div>
+        </form>
+        <div class="signup-link">
+            Don't have an account? <a href="signup.html">Go to Signup</a>
+        </div>
+    </div>
+    </div>
+    <script>
+        // Backend URL configuration
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const API_URL = isLocal ? 'http://localhost:5000' : 'https://bangbro-s-i2g5.vercel.app/';
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            this.action = API_URL + '/login';
+        });
+    </script>
+</body>
+
+</html>
